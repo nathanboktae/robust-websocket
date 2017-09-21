@@ -6,7 +6,7 @@
 
 `robust-websocket` is a wrapper around the standard [WebSocket] class that implements the same interface, but can reconnect when disconnected or the user's computer comes back online.
 
-It is error-code aware and will not reconnect on 1008 (HTTP 400 equivalent) and 1011 (HTTP 500 equivalent) by default. This behavior is fully configurable via the `shouldConnect` (see [Usage](https://github.com/appuri/robust-websocket#usage)).
+It is error-code aware and will not reconnect on 1008 (HTTP 400 equivalent) and 1011 (HTTP 500 equivalent) by default. This behavior is fully configurable via the `shouldConnect` (see [Usage](https://github.com/nathanboktae/robust-websocket#usage)).
 
 ### Compared to [reconnecting-websocket](https://github.com/joewalnes/reconnecting-websocket)
 
