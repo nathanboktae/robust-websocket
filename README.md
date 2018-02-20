@@ -55,6 +55,14 @@ var ws = new RobustWebSocket('ws://echo.websocket.org/', null {
 })
 ```
 
+The URL parameter can either be a string, or a function which returns a string. This can be useful if you need the WebSocket to reconnect to a different URL than it connected to initially:
+
+```javascript
+var ws = new RobustWebSocket((ws) => {
+  return ws.reconnects > 0 ? `ws://echo.websocket.org/?reconnect=${ws.reconnects}` : `ws://echo.websocket.org/`
+});
+```
+
 #### `shouldReconnect` Examples
 
 Reconnect with an exponetial backoff on all errors
