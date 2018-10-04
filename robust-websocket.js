@@ -11,6 +11,8 @@
   }
 })(function(global, navigator) {
 
+  var WebSocket = global.WebSocket
+
   var RobustWebSocket = function(url, protocols, userOptions) {
     var realWs = { close: function() {} },
         connectTimeout,
@@ -93,12 +95,17 @@
     }
 
     self.open = function() {
-      if (realWs.readyState !== WebSocket.OPEN && realWs.readyState !== WebSocket.CONNECTING) {
+      if (realWs.readyState !== self.OPEN && realWs.readyState !== self.CONNECTING) {
         clearPendingReconnectIfNeeded()
         reconnectWhenOnlineAgain = false
         explicitlyClosed = false
 
         newWebSocket()
+      } else {
+        throw Object.assign(
+          new Error('An attempt was made to use a WebSocket that is not usable'),
+          { name: 'InvalidStateError' }
+        )
       }
     }
 
@@ -238,6 +245,17 @@
       stack[i].call(this, event)
     }
   }
+
+  ['CONNECTING' , 'OPEN', 'CLOSING', 'CLOSED'].forEach(function (name) {
+    const descriptor = {
+      writable: false,
+      enumerable: true,
+      configurable: false,
+      value: WebSocket[name],
+    }
+    Object.defineProperty(RobustWebSocket, name, descriptor)
+    Object.defineProperty(RobustWebSocket.prototype, name, descriptor)
+  })
 
   return RobustWebSocket
 }, typeof window != 'undefined' ? window : (typeof global != 'undefined' ? global : this));
