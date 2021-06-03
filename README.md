@@ -36,7 +36,7 @@ ws.addEventListener('message', function(event) {
 But with an optional set of options you can specify as a 3rd parameter
 
 ```javascript
-var ws = new RobustWebSocket('ws://echo.websocket.org/', null {
+var ws = new RobustWebSocket('ws://echo.websocket.org/', {
    // The number of milliseconds to wait before a connection is considered to have timed out. Defaults to 4 seconds.
    timeout: 4000,
   // A function that given a CloseEvent or an online event (https://developer.mozilla.org/en-US/docs/Online_and_offline_events) and the `RobustWebSocket`,
@@ -83,7 +83,7 @@ Reconnect only on some whitelisted codes, and only 3 attempts, except on online 
 ```javascript
 function shouldReconnect(event, ws) {
   if (event.type === 'online') return 0
-  return [1006,1011,1012].indexOf(event.code) && [1000,5000,10000][ws.attempt]
+  return [1006,1011,1012].indexOf(event.code) && [1000,5000,10000][ws.attempts]
 }
 ```
 
