@@ -144,8 +144,8 @@
       enumerable: true
     })
 
-    function newWebSocket() {
-      var newUrl = (typeof url === 'function' ? url(self) : url);
+    async function newWebSocket() {
+      var newUrl = (typeof url === 'function' ? await url(self) : url);
       pendingReconnect = null
       realWs = new WebSocket(newUrl, protocols || undefined)
       realWs.binaryType = self.binaryType
