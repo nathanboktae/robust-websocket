@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A robust reconnecting WebSocket client for the browser",
   "main": "robust-websocket.js",
+  "types": "./robust-websocket.d.ts",
   "scripts": {
     "test": "node -e \"require('grunt').tasks(['test']);\""
   },

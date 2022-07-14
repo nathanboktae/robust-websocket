@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "module": "UMD",
+        "strict": true,
+        "lib": ["DOM", "es5"],
+        "baseUrl": "./",
+        "typeRoots": [
+            "./"
+        ],
+        "types": [],
+        "noEmit": true
+    },
+    "files": [
+        "./robust-websocket.d.ts",
+    ]
+}
