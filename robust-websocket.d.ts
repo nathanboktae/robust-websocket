@@ -1,4 +1,4 @@
-declare class RobustWebSocket {
+export default class RobustWebSocket {
   constructor(
     streamUri: string | ((ws: WebSocket) => string),
     protocols: string[],
@@ -44,5 +44,3 @@ declare class RobustWebSocket {
     callback: (event: MessageEvent) => void
   ): void;
 }
-
-export = RobustWebSocket;
