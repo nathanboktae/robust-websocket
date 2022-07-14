@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "module": "UMD",
+        "strict": true,
+        "baseUrl": "./",
+        "typeRoots": [
+            "./"
+        ],
+        "types": [],
+        "noEmit": true
+    },
+    "files": [
+        "./robust-websocket.d.ts",
+    ]
+}
