@@ -36,7 +36,7 @@ ws.addEventListener('message', function(event) {
 But with an optional set of options you can specify as a 3rd parameter
 
 ```javascript
-var ws = new RobustWebSocket('ws://echo.websocket.org/', {
+var ws = new RobustWebSocket('ws://echo.websocket.org/', undefined, {
    // The number of milliseconds to wait before a connection is considered to have timed out. Defaults to 4 seconds.
    timeout: 4000,
   // A function that given a CloseEvent or an online event (https://developer.mozilla.org/en-US/docs/Online_and_offline_events) and the `RobustWebSocket`,
