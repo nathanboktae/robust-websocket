@@ -1,7 +1,7 @@
 export default class RobustWebSocket {
   constructor(
     streamUri: string | ((ws: WebSocket) => string),
-    protocols: string[],
+    protocols?: string[],
     options?: {
       timeout?: number;
       shouldReconnect?: (event: CloseEvent, ws: WebSocket) => number | boolean;
